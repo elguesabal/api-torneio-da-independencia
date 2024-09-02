@@ -1,0 +1,22 @@
+{
+  "tabela": [
+    {
+      "nome": "Felipe Santos",
+      "tj": 4,
+      "v": 2,
+      "d": 2,
+      "vSet": 5,
+      "pf": 86,
+      "ps": 64
+    },
+    {
+      "nome": "Gabriel Monteiro",
+      "tj": 3,
+      "v": 0,
+      "d": 3,
+      "vSet": 0,
+      "pf": 34,
+      "ps": 69
+    }
+  ]
+}
