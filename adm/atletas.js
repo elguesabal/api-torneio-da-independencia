@@ -1,6 +1,4 @@
-import { pathFile, creatFolder, writeJsonFile } from "../src/functionJson.js";
-// import { promises as fs } from 'fs';
-
+import { pathFile, creatFolder, writeJsonFile, creatJogos } from "../src/functionJson.js";
 
 export default function updateAtletas(app) {
 	app.put("/adm/atletas/:categoria/:modalidade", async (req, res) => {
@@ -11,7 +9,8 @@ export default function updateAtletas(app) {
 
 			await creatFolder(pathFile(`../dados/tabelas/${categoria}`));
 			await writeJsonFile(pathFile(`../dados/tabelas/${categoria}/${modalidade}.json`), atletas);
-			// creatJogos(); // TEM Q CRIAR UMA FUNCAO Q CRIE OS JOGOS COM BASE NO NUMERO DE ATLETAS
+			await creatFolder(pathFile(`../dados/jogos/${categoria}`));
+			await writeJsonFile(pathFile(`../dados/jogos/${categoria}/${modalidade}.json`), creatJogos(atletas.tabela));
 			res.status(200).send("ok");
 		} catch (error) {
 			res.status(500).send("Erro ao inscrever atletas.");

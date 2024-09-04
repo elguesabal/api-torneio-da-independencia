@@ -1,6 +1,7 @@
-import { promises as fs } from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import { promises as fs } from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import { case3, case4, case5, case6, case7, case8, case9 } from "./caseSwitch.js";
 
 export function pathFile(file) {
 	const filename = fileURLToPath(import.meta.url);
@@ -51,10 +52,47 @@ export async function writeJsonFile(jsonFilePath, data) {
 	}
 };
 
-export async function creatFolder(folder) {	// folder == "jogos || tabelas/CATEGORIA"	// file == "/NOME_DO_ARQUIVO.JSON" ACHO Q NAO PRECISA DE file
+export async function creatFolder(folder) {	// folder == "jogos || tabelas/CATEGORIA"	// file == "/NOME_DO_ARQUIVO.JSON" ACHO Q NAO VAI PRECISAR DE file
 	try {
 		await fs.mkdir(folder, { recursive: true });
 	} catch (erro) {
 		throw new Error("Erro ao criar pasta");
+	}
+}
+
+export async function getCategorias(path) {
+	try {
+		return (await fs.readdir(path));
+	} catch (error) {
+		throw new Error("Erro ao ler pasta");
+	}
+}
+
+export function creatJogos(atletas) {
+	switch (atletas.length) {
+		case 3:
+			return (case3(atletas));
+
+		case 4:
+			return (case4(atletas));
+
+		case 5:
+			return (case5(atletas));
+
+		case 6:
+			return (case6(atletas));
+
+		case 7:
+			return (case7(atletas));
+
+		case 8:
+			return (case8(atletas));
+
+		case 9:
+			return (case9(atletas));
+
+		default:
+			console.log("Erro: numero de atletas nao esperado");
+			return ("Erro");
 	}
 }
