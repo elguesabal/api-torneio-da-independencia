@@ -6,9 +6,9 @@ export default function getTabela(app) {
 			const categoria = req.query.categoria;
 			const modalidade = req.query.modalidade;
 			const data = await readJsonFile(pathFile(`../dados/tabelas/${categoria}/${modalidade}.json`));
-			res.json(data.tabela);
+			res.status(200).json(data.tabela);
 		} catch (error) {
-			res.send("Erro ao encontrar tabela.");
+			res.status(500).send("Erro ao encontrar tabela.");
 		}
 	});
 }

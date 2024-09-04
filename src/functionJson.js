@@ -68,6 +68,13 @@ export async function getCategorias(path) {
 	}
 }
 
+export function creatTabela(atletas) {
+	let tabela = { tabela: [] };
+
+	atletas.forEach((atleta, i) => tabela.tabela.push({ nome: atleta.nome, tj: 0, v: 0, d: 0, vSet: 0, pf: 0, ps: 0 }));
+	return (tabela);
+}
+
 export function creatJogos(atletas) {
 	switch (atletas.length) {
 		case 3:
