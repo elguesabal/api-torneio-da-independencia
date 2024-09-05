@@ -60,7 +60,7 @@ export async function creatFolder(folder) {	// folder == "jogos || tabelas/CATEG
 	}
 }
 
-export async function getCategorias(path) {
+export async function listDirectory(path) {
 	try {
 		return (await fs.readdir(path));
 	} catch (error) {
@@ -79,25 +79,18 @@ export function creatJogos(atletas) {
 	switch (atletas.length) {
 		case 3:
 			return (case3(atletas));
-
 		case 4:
 			return (case4(atletas));
-
 		case 5:
 			return (case5(atletas));
-
 		case 6:
 			return (case6(atletas));
-
 		case 7:
 			return (case7(atletas));
-
 		case 8:
 			return (case8(atletas));
-
 		case 9:
 			return (case9(atletas));
-
 		default:
 			console.log("Erro: numero de atletas nao esperado");
 			return ("Erro");

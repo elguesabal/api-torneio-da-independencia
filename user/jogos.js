@@ -1,6 +1,6 @@
 import { readJsonFile, pathFile } from "../src/functionJson.js";
 
-export default function getJogos(app) { // FUNCAO PENSADA PARA RENDERIZAR INFORMACOES NO FRONT
+export default function getJogos(app) {
 	app.get("/jogos", async (req, res) => {
 		try {
 			const categoria = req.query.categoria;
