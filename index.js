@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import dotenv from "dotenv";
 
 // ADM
 import { getCategoria, updateCategoria, creatCategoria, deleteCategoria } from "./adm/categoria.js";
@@ -11,12 +12,14 @@ import updateAtletas from "./adm/atletas.js";
 import getInfoHome from "./user/info.js";
 import getTabela from "./user/tabela.js";
 import getJogos from "./user/jogos.js";
+import feedback from "./user/feedback.js";
 // USER
 
 const app = express();
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(cors());
+dotenv.config();
 
 app.get('/', (req, res) => res.send("teste"));
 
@@ -33,6 +36,7 @@ updateAtletas(app);
 getInfoHome(app);
 getTabela(app);
 getJogos(app);
+feedback(app);
 // USER
 
 app.listen(process.env.PORT || 3000, () => {
@@ -46,4 +50,4 @@ app.listen(process.env.PORT || 3000, () => {
 
 
 // LINK DO PARANAUE
-// 
+// https://api-torneio-da-independencia.onrender.com

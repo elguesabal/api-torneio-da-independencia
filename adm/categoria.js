@@ -35,10 +35,8 @@ export function deleteCategoria(app) {
 		try {
 			const categoria = req.params.categoria;
 
-			// console.log(categoria)
 			await deleteFolder(pathFile(`../dados/tabelas/${categoria}`));
 			await deleteFolder(pathFile(`../dados/jogos/${categoria}`));
-
 			res.status(200).send("ok");
 		} catch (error) {
 			res.status(500).send("Erro ao deletar a categoria do torneio.");

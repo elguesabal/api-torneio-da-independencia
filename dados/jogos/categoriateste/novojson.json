@@ -2,27 +2,27 @@
   "jogos": [
     {
       "nome1": "Gabriel Monteiro",
-      "set1_1": 0,
-      "set2_1": 0,
+      "set1_1": 21,
+      "set2_1": 21,
       "set3_1": 0,
       "nome2": "teste",
-      "set1_2": 0,
-      "set2_2": 0,
+      "set1_2": 1,
+      "set2_2": 1,
       "set3_2": 0,
-      "sets": 0,
-      "v": 0
+      "sets": 2,
+      "v": 1
     },
     {
       "nome1": "Gabriel Monteiroa",
-      "set1_1": 0,
-      "set2_1": 0,
+      "set1_1": 1,
+      "set2_1": 1,
       "set3_1": 0,
       "nome2": "Aleleleke",
-      "set1_2": 0,
-      "set2_2": 0,
+      "set1_2": 21,
+      "set2_2": 21,
       "set3_2": 0,
-      "sets": 0,
-      "v": 0
+      "sets": 2,
+      "v": 2
     },
     {
       "nome1": "teste",

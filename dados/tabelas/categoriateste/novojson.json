@@ -2,30 +2,30 @@
   "tabela": [
     {
       "nome": "teste",
-      "tj": 0,
+      "tj": 1,
       "v": 0,
-      "d": 0,
+      "d": 1,
       "vSet": 0,
-      "pf": 0,
-      "ps": 0
+      "pf": 2,
+      "ps": 42
     },
     {
       "nome": "Gabriel Monteiro",
-      "tj": 0,
-      "v": 0,
+      "tj": 1,
+      "v": 1,
       "d": 0,
-      "vSet": 0,
-      "pf": 0,
-      "ps": 0
+      "vSet": 2,
+      "pf": 42,
+      "ps": 2
     },
     {
       "nome": "Gabriel Monteiroa",
-      "tj": 0,
+      "tj": 1,
       "v": 0,
-      "d": 0,
+      "d": 1,
       "vSet": 0,
-      "pf": 0,
-      "ps": 0
+      "pf": 2,
+      "ps": 42
     },
     {
       "nome": "aaa",
@@ -38,12 +38,12 @@
     },
     {
       "nome": "Aleleleke",
-      "tj": 0,
-      "v": 0,
+      "tj": 1,
+      "v": 1,
       "d": 0,
-      "vSet": 0,
-      "pf": 0,
-      "ps": 0
+      "vSet": 2,
+      "pf": 42,
+      "ps": 2
     }
   ]
 }
