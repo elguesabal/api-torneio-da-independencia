@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { case3, case4, case5, case6, case7, case8, case9 } from "./caseSwitch.js";
+import { case2, case3, case4, case5, case6, case7, case8, case9 } from "./caseSwitch.js";
 
 export function pathFile(file) {
 	const filename = fileURLToPath(import.meta.url);
@@ -52,7 +52,7 @@ export async function writeJsonFile(jsonFilePath, data) {
 	}
 };
 
-export async function creatFolder(folder) {	// folder == "jogos || tabelas/CATEGORIA"	// file == "/NOME_DO_ARQUIVO.JSON" ACHO Q NAO VAI PRECISAR DE file
+export async function creatFolder(folder) {
 	try {
 		await fs.mkdir(folder, { recursive: true });
 	} catch (erro) {
@@ -68,6 +68,42 @@ export async function listDirectory(path) {
 	}
 }
 
+export async function checkFile(path) {
+	try {
+		await fs.access(path, fs.constants.F_OK);
+		return (true);
+	} catch (err) {
+		return (false);
+	}
+}
+
+export async function deleteFile(path) {
+	try {
+		await fs.unlink(path);
+	} catch (error) {
+		throw new Error("Erro ao ler pasta");
+	}
+}
+
+export async function deleteFolder(folderPath) {
+    try {
+        const files = await fs.readdir(folderPath);
+
+        for (const file of files) {
+            const filePath = path.join(folderPath, file);
+            const stats = await fs.lstat(filePath);
+            if (stats.isDirectory()) {
+                await deleteFolder(filePath);
+            } else {
+                await fs.unlink(filePath);
+            }
+        }
+        await fs.rmdir(folderPath);
+    } catch (error) {
+		throw new Error("Erro ao deletar pasta");
+    }
+}
+
 export function creatTabela(atletas) {
 	let tabela = { tabela: [] };
 
@@ -77,6 +113,8 @@ export function creatTabela(atletas) {
 
 export function creatJogos(atletas) {
 	switch (atletas.length) {
+		case 2:
+			return (case2(atletas));
 		case 3:
 			return (case3(atletas));
 		case 4:
