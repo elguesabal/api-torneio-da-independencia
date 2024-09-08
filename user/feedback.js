@@ -20,7 +20,7 @@ function enviarFeedback(email, feedback) {
 	};
 	transport.sendMail(dadosEmail)
 	.then((response) => console.log("Email enviado"))
-	.catch((error) => console.log("Falha ao enviar email"));
+	.catch((error) => console.log("Falha ao enviar email, erro: ", error));
 }
 
 export default function feedback(app) {
