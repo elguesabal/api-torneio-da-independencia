@@ -16,10 +16,10 @@ import feedback from "./user/feedback.js";
 // USER
 
 const app = express();
+dotenv.config();
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(cors());
-dotenv.config();
 
 app.get('/', (req, res) => res.send("teste"));
 
