@@ -21,7 +21,15 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (req, res) => res.send("teste"));
+app.get('/', (req, res) => {
+	const currentDate = new Date();
+	const hora = currentDate.getHours();
+	const minuto = currentDate.getMinutes();
+	const segundo = currentDate.getSeconds();
+
+	console.log(`Chamada anti inatividade acionada as: ${hora}:${minuto}:${segundo}`);
+	res.send("Rota anti inatividade");
+});
 
 // ADM
 getCategoria(app);
