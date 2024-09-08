@@ -53,6 +53,6 @@ export default function feedback(app) {
 		};
 		transport.sendMail(dadosEmail)
 		.then((response) => res.status(200).send("Email enviado"))
-		.catch((error) => res.status(500).send("Falha ao enviar email"))
+		.catch((error) => res.status(500).send("Falha ao enviar email: " + error))
 	});
 }
