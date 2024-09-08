@@ -18,8 +18,6 @@ function enviarFeedback(email, feedback) {
 		html: `<h1>Nome: ${feedback.nome}</h1><p>Feedback: ${feedback.feedback}</p>`,
 		text: `Nome: ${feedback.nome} Feedback: ${feedback.feedback}`
 	};
-	console.log(process.env.EMAIL)
-	console.log(process.env.SENHA)
 	transport.sendMail(dadosEmail)
 	.then((response) => console.log("Email enviado"))
 	.catch((error) => console.log("Falha ao enviar email"));
