@@ -13,8 +13,8 @@ function enviarFeedback(email, feedback) {
 	const dadosEmail = {
 		from: `Torneio da independencia ${process.env.EMAIL}`,
 		to: email,
-		replyTo: "",
-		subject: 'Feedback recebido!',
+		replyTo: "Novo feedback",
+		subject: "Feedback recebido!",
 		html: `<h1>Nome: ${feedback.nome}</h1><p>Feedback: ${feedback.feedback}</p>`,
 		text: `Nome: ${feedback.nome} Feedback: ${feedback.feedback}`
 	};
@@ -27,7 +27,13 @@ export default function feedback(app) {
 	app.post("/feedback", (req, res) => {
 		try {
 			const feedback = req.body;
-			
+
+			// const feedback = {
+			// 	nome: req.body.nome,
+			// 	feedback: req.body.feedback
+			// }
+
+			// console.log(feedback)
 			enviarFeedback("joseelguesabal@gmail.com", feedback);
 			// setTimeout(() => enviarFeedback("xxxx@gmail.com", feedback), 5000); // COLOCAR O EMAIL DO ALEXANDRE
 			res.status(200).send("ok");
