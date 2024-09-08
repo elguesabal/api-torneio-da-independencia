@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 
-function enviarFeedback(email, feedback) {
+function enviarFeedback(email, feedback, res) {
 	const transport = nodemailer.createTransport({
 		host: 'smtp.office365.com',
 		port: 587,
@@ -19,8 +19,10 @@ function enviarFeedback(email, feedback) {
 		text: `Nome: ${feedback.nome} Feedback: ${feedback.feedback}`
 	};
 	transport.sendMail(dadosEmail)
-	.then((response) => console.log("Email enviado"))
-	.catch((error) => console.log("Falha ao enviar email"))
+	.then((response) => res.status(200).send("Email enviado"))
+	.catch((error) => res.status(500).send("Falha ao enviar email"))
+	// .then((response) => console.log("Email enviado"))
+	// .catch((error) => console.log("Falha ao enviar email"))
 }
 
 export default function feedback(app) {
@@ -28,11 +30,11 @@ export default function feedback(app) {
 		try {
 			const feedback = req.body;
 
-			enviarFeedback("joseelguesabal@gmail.com", feedback);
+			enviarFeedback("joseelguesabal@gmail.com", feedback, res);
 			// setTimeout(() => enviarFeedback("xxxx@gmail.com", feedback), 5000); // COLOCAR O EMAIL DO ALEXANDRE
-			res.status(200).send("ok");
+			// res.status(200).send("ok");
 		} catch (error) {
-			res.status(500).send("Erro ao salvar feedback.");
+			// res.status(500).send("Erro ao salvar feedback.");
 		}
 	});
 }
