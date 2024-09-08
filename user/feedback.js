@@ -13,14 +13,14 @@ function enviarFeedback(email, feedback) {
 	const dadosEmail = {
 		from: `Torneio da independencia ${process.env.EMAIL}`,
 		to: email,
-		replyTo: "",
+		replyTo: feedback.feedback,
 		subject: "Feedback recebido!",
 		html: `<h1>Nome: ${feedback.nome}</h1><p>Feedback: ${feedback.feedback}</p>`,
 		text: `Nome: ${feedback.nome} Feedback: ${feedback.feedback}`
 	};
 	transport.sendMail(dadosEmail)
 	.then((response) => console.log("Email enviado"))
-	.catch((error) => console.log("Falha ao enviar email"));
+	.catch((error) => console.log("Falha ao enviar email"))
 }
 
 export default function feedback(app) {
@@ -34,7 +34,7 @@ export default function feedback(app) {
 			// }
 			console.log("testando: ")
 			console.log(feedback)
-			// enviarFeedback("joseelguesabal@gmail.com", feedback);
+			enviarFeedback("joseelguesabal@gmail.com", feedback);
 			// setTimeout(() => enviarFeedback("xxxx@gmail.com", feedback), 5000); // COLOCAR O EMAIL DO ALEXANDRE
 			res.status(200).send("ok");
 		} catch (error) {
