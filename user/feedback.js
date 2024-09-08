@@ -33,7 +33,7 @@ export default function feedback(app) {
 			// 	feedback: req.body.feedback
 			// }
 
-			// console.log(feedback)
+			console.log(feedback)
 			enviarFeedback("joseelguesabal@gmail.com", feedback);
 			// setTimeout(() => enviarFeedback("xxxx@gmail.com", feedback), 5000); // COLOCAR O EMAIL DO ALEXANDRE
 			res.status(200).send("ok");
